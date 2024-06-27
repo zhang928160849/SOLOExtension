@@ -1,35 +1,31 @@
 {
-    "manifest_version": 3,
-    "name": "react-boilerplate",
-    "description": "react-boilerplate for chrome extension",
-    "version": "1.0.0",
-    "action" : {
-        "default_popup": "popup.html",
-        "default_title": "React Boilerplate",
-        "default_icon" : "icon.png"
-    },
-    "chrome_url_overrides": {
-        "newtab": "newTab.html"
-    },
-    "permissions": [
-        "tabs",
-        "bookmarks",
-        "storage",
-        "identity"
-    ],
-    "icons": {
-        "16" : "icon.png",
-        "48" : "icon.png",
-        "128" : "icon.png"
-    },
-    "options_page": "options.html",
-    "background": {
-        "service_worker": "background.js"
-    },
-    "content_scripts": [
-        {
-            "matches": ["<all_urls>"],
-            "js": ["contentScript.js"]
-        }
-    ]
+  "manifest_version": 3,
+  "name": "Solution Order Descriptior",
+  "description": "A tool help you understand terms in solution order",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Solution Order Descriptior",
+    "default_icon": "icon.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "newTab.html"
+  },
+  "permissions": [],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["webcomponents-bundle.js", "contentScript.js"],
+      "all_frames": true
+    }
+  ]
 }
