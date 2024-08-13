@@ -89,13 +89,25 @@ function ContentScript() {
     setPopovers(newList);
   };
 
-  let openChildPOP = (parentID, openerID, termID, ChildPOPID) => {
+  let openChildPOP = (
+    parentID,
+    openerID,
+    termID,
+    ChildPOPID,
+    messageHandling
+  ) => {
     let isNeedCreateNewPOP = true;
 
     let updatedPopovers = popovers.map((_) => {
       if (_.id == ChildPOPID) {
         isNeedCreateNewPOP = false;
-        return { ..._, isOpen: true, termID, opener: openerID };
+        return {
+          ..._,
+          isOpen: true,
+          termID,
+          opener: openerID,
+          messageHandling,
+        };
       }
 
       if (_.id == parentID) {
@@ -115,7 +127,7 @@ function ContentScript() {
         termID: termID,
         contentID: "",
         firstPopup: false,
-        messageHandling: false,
+        messageHandling: messageHandling,
       };
 
       updatedPopovers.push(newPOP);

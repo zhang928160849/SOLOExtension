@@ -21,12 +21,14 @@ function GXpopoverLabel(props) {
   return props.dictionaryText.map((_) => {
     switch (_.type) {
       case "p":
-        if(!props.firstPopup){
+        if (!props.firstPopup) {
           return <Text>{_.t}</Text>;
-        }else{
-          return (<StandardListItem>
-            <Text>{_.t}</Text>
-          </StandardListItem>);
+        } else {
+          return (
+            <StandardListItem>
+              <Text>{_.t}</Text>
+            </StandardListItem>
+          );
         }
       case "l":
         return (
@@ -39,9 +41,9 @@ function GXpopoverLabel(props) {
                   props.id,
                   randomSeed + _.navID,
                   _.navID,
-                  randomSeed + "POPID"
+                  randomSeed + "POPID",
+                  props.messageHandling
                 );
-                // setChildPOPID(nchildPOP)
               }}
               onMouseOut={() => {
                 props.destroyChildPOP(randomSeed + "POPID");
